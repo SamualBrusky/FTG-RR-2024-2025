@@ -66,7 +66,7 @@ import java.io.Serializable;
  * This class can be used to define all the specific hardware for a
  single robot.
  */
-public class RobotContainer
+public class Robot
 {
     HardwareMap hwMap = null;
     private ElapsedTime period  = new ElapsedTime();
@@ -83,9 +83,29 @@ public class RobotContainer
     public Servo Dropper_Turn1 = null;
     public Servo Dropper_Turn2 = null;
 
+    double Closed = 0;
+    double Open = 0.1;
+    double Straight1 = 0.2;
+    double Straight2 = 0.2;
+    double Turn1 = 0.533333333333333333;
+    double Turn2 = 0.533333333333333333;
+
+    double Turn1Degrees = Turn1 * 300.0;
+    double Turn2Degrees = Turn2 * 300.0;
+
+    //AirPlane Launcher
+    double LAUNCH = 0.5;
+    double NO_LAUNCH = 0;
+
     public Servo Launcher = null;
 
     public Servo Claw;
+
+    double ClawTurnGrab = 0.38;
+    double ClawTurnStart = 0.01;
+
+
+
 
     //Sensors
     public ColorSensor OutTakeDetector1 = null;
@@ -109,7 +129,7 @@ public class RobotContainer
 
 
     /* Constructor */
-    public RobotContainer(){
+    public Robot(){
 
     }
 
@@ -166,22 +186,26 @@ public class RobotContainer
         rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        Claw.setPosition(Constants.ClawTurnStart);
+        Claw.setPosition(ClawTurnStart);
+
+
+
+
         // Set all motors to zero power
-        leftFront.setPower(Constants.ZERO);
-        leftBack.setPower(Constants.ZERO);
-        rightBack.setPower(Constants.ZERO);
-        rightFront.setPower(Constants.ZERO);
-        Intake.setPower(Constants.ZERO);
-        Hook.setPower(Constants.ZERO);
-        Lift1.setPower(Constants.ZERO);
-        Lift2.setPower(Constants.ZERO);
+        leftFront.setPower(0);
+        leftBack.setPower(0);
+        rightBack.setPower(0);
+        rightFront.setPower(0);
+        Intake.setPower(0);
+        Hook.setPower(0);
+        Lift1.setPower(0);
+        Lift2.setPower(0);
 
 
-        Dropper.setPosition(Constants.Closed);
-        Dropper_Turn1.setPosition(Constants.Straight1);
-        Dropper_Turn2.setPosition(Constants.Straight2);
-        Launcher.setPosition(Constants.NO_LAUNCH);
+        Dropper.setPosition(Closed);
+        Dropper_Turn1.setPosition(Straight1);
+        Dropper_Turn2.setPosition(Straight2);
+        Launcher.setPosition(NO_LAUNCH);
 
         // Sensors
 

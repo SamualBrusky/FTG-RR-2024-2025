@@ -75,9 +75,7 @@ public class Constants
    public static final double Straight2 = 0.2;
    public static final double Turn1 = 0.533333333333333333;
    public static final double Turn2 = 0.533333333333333333;
-
-   public static final double Turn1Degrees = Turn1 * 300.0;
-   public static final double Turn2Degrees = Turn2 * 300.0;
+   public static final double INTAKESPEED = 1;
 
     //AirPlane Launcher
    public static final double LAUNCH = 0.5;
