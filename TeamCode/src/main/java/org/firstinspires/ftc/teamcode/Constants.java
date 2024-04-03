@@ -68,19 +68,33 @@ import java.io.Serializable;
  */
 public class Constants
 {
-    public static final double ZERO = 0;
-   public static final double Closed = 0;
-   public static final double Open = 0.1;
-   public static final double Straight1 = 0.2;
-   public static final double Straight2 = 0.2;
-   public static final double Turn1 = 0.533333333333333333;
-   public static final double Turn2 = 0.533333333333333333;
-   public static final double INTAKESPEED = 1;
+   public class DriveConstants {
+      public final double WHEEL_DIAMETER = 0.00;
+   }
 
-    //AirPlane Launcher
-   public static final double LAUNCH = 0.5;
-   public static final double NO_LAUNCH = 0;
+   public class IntakeContants {
+      public static final double ZERO = 0;
+      public static final double INTAKESPEED = 1;
+   }
 
-   public static final double ClawTurnGrab = 0.38;
-   public static final double ClawTurnStart = 0.01;
+   public class LiftConstants {
+
+   }
+
+   public class LauncherConstants {
+      public static final double LAUNCH = 0.5;
+      public static final double NO_LAUNCH = 0;
+   }
+   public class DropperConstants {
+      public static final double Closed = 0;
+      public static final double Open = 0.1;
+      public static final double Straight1 = 0.2;
+      public static final double Straight2 = 0.2;
+      public static final double Turn1 = 0.533333333333333333;
+      public static final double Turn2 = 0.533333333333333333;
+   }
+   public class ClawConstants {
+      public static final double ClawTurnGrab = 0.38;
+      public static final double ClawTurnStart = 0.01;
+   }
 }
