@@ -72,9 +72,14 @@ public class Constants
       public final double WHEEL_DIAMETER = 0.00;
    }
 
+   public class ClimberConstants {
+      public static final int RAISEPOS = 1600;
+      public static final int LOWERPOS = 1300;
+   }
+
    public class IntakeContants {
-      public static final double ZERO = 0;
-      public static final double INTAKESPEED = 1;
+      public static final double ZERO = 0.0;
+      public static final double INTAKESPEED = 1.0; //Velocity
    }
 
    public class LiftConstants {
@@ -83,10 +88,10 @@ public class Constants
 
    public class LauncherConstants {
       public static final double LAUNCH = 0.5;
-      public static final double NO_LAUNCH = 0;
+      public static final double NO_LAUNCH = 0.0;
    }
    public class DropperConstants {
-      public static final double Closed = 0;
+      public static final double Closed = 0.0;
       public static final double Open = 0.1;
       public static final double Straight1 = 0.2;
       public static final double Straight2 = 0.2;
