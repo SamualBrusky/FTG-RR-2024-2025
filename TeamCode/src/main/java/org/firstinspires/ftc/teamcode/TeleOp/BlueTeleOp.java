@@ -12,7 +12,6 @@ import com.arcrobotics.ftclib.hardware.motors.Motor;
 import com.arcrobotics.ftclib.hardware.motors.MotorEx;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.firstinspires.ftc.teamcode.Commands.ClimberLowerCmd;
 import org.firstinspires.ftc.teamcode.Commands.ClimberRaiseCmd;
@@ -61,8 +60,12 @@ public class BlueTeleOp extends CommandOpMode {
         m_ClimberRaise = new ClimberRaiseCmd(m_Climber);
         m_ClimberLower = new ClimberLowerCmd(m_Climber);
 
-        new GamepadButton(m_engineerOp, )
-                .whenActive(m_ClimberRaise);
+        m_Raise = (new GamepadButton(m_engineerOp, GamepadKeys.Button.DPAD_UP)
+                .whenPressed(m_ClimberRaise));
+        m_Lower = (new GamepadButton(m_engineerOp, GamepadKeys.Button.DPAD_DOWN)
+                .whenPressed(m_ClimberLower));
+
+
     }
 
 }
