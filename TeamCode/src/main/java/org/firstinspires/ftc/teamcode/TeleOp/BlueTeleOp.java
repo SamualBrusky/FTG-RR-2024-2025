@@ -76,8 +76,16 @@ public class BlueTeleOp extends CommandOpMode {
         m_ClimberLower = new ClimberLowerCmd(m_Climber);
         m_OuttakeRotateOuttakePos = new OuttakeRotateOuttakePos(m_OuttakeRotateSubsystem, m_OuttakeSubsystem);
         m_OuttakeRotateIntakePos = new OuttakeRotateIntakePos(m_OuttakeRotateSubsystem, m_OuttakeSubsystem);
+        m_OuttakeOpen = new OuttakeOpen(m_OuttakeSubsystem);
 
-
+        //Outtake
+        m_OuttakePos = (new GamepadButton(m_engineerOp, GamepadKeys.Button.RIGHT_BUMPER)
+                .whenPressed(m_OuttakeRotateOuttakePos));
+        m_IntakePos = (new GamepadButton(m_engineerOp, GamepadKeys.Button.RIGHT_BUMPER)
+                .whenReleased(m_OuttakeRotateIntakePos));
+        m_Open = (new GamepadButton(m_engineerOp, GamepadKeys.Button.LEFT_BUMPER)
+                .whenPressed(m_OuttakeOpen));
+       //Climber
         m_Raise = (new GamepadButton(m_engineerOp, GamepadKeys.Button.DPAD_UP)
                 .whenPressed(m_ClimberRaise));
         m_Lower = (new GamepadButton(m_engineerOp, GamepadKeys.Button.DPAD_DOWN)
