@@ -93,10 +93,10 @@ public class Constants
    public class DropperConstants {
       public static final double Closed = 0.0;
       public static final double Open = 0.1;
-      public static final double Straight1 = 0.2;
-      public static final double Straight2 = 0.2;
-      public static final double Turn1 = 0.533333333333333333;
-      public static final double Turn2 = 0.533333333333333333;
+
+      public static final double INTAKEPOS = 0.2;
+
+      public static final double OUTTAKEPOS = 0.533333333333333333;
    }
    public class ClawConstants {
       public static final double ClawTurnGrab = 0.38;
