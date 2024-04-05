@@ -24,6 +24,7 @@ public class IntakeCmd extends CommandBase {
 
     @Override
     public void execute() {
+
         m_Intake.ON();
     }
 
