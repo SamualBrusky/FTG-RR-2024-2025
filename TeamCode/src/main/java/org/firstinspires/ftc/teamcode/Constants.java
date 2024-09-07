@@ -72,34 +72,19 @@ public class Constants
       public final double WHEEL_DIAMETER = 0.00;
    }
 
-   public class ClimberConstants {
-      public static final int RAISEPOS = 1600;
-      public static final int LOWERPOS = 1300;
-   }
-
-   public class IntakeContants {
-      public static final double ZERO = 0.0;
-      public static final double INTAKESPEED = 1.0; //Velocity
-   }
-
    public class LiftConstants {
+      public static final int UPPER_BRACKET_LIFT_HEIGHT = 1000; //rotations
+      public static final int UPPER_BRACKET_LIFT_ANGLE = 80; //degrees
+      public static final int SUBMERSIBLE_LIFT_HEIGHT = 250; //rotation
+      public static final int SUBMERSIBLE_LIFT_ANGLE = 80; //degrees
+      public static final int STARTING_LIFT_HEIGHT = 0;
+      public static final int STARTING_LIFT_ANGLE = 0;
+      public static final int INTAKE_LIFT_HEIGHT = 100;
+      public static final int INTAKE_LIFT_ANGLE = 0;
 
    }
-
-   public class LauncherConstants {
-      public static final double LAUNCH = 0.5;
-      public static final double NO_LAUNCH = 0.0;
-   }
-   public class DropperConstants {
-      public static final double Closed = 0.0;
-      public static final double Open = 0.1;
-
-      public static final double INTAKEPOS = 0.2;
-
-      public static final double OUTTAKEPOS = 0.533333333333333333;
-   }
-   public class ClawConstants {
-      public static final double ClawTurnGrab = 0.38;
-      public static final double ClawTurnStart = 0.01;
+   public class GrabberConstants {
+      public static final double GrabberOpen = 0.0;
+      public static final double GrabberClose = 0.0;
    }
 }

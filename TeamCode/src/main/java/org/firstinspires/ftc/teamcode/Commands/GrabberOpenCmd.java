@@ -2,9 +2,7 @@ package org.firstinspires.ftc.teamcode.Commands;
 
 import com.arcrobotics.ftclib.command.CommandBase;
 
-import org.firstinspires.ftc.teamcode.Constants;
-import org.firstinspires.ftc.teamcode.subsystems.ClimberSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.IntakeSubsystem;
+import org.firstinspires.ftc.teamcode.subsystems.GrabberSubsystem;
 
 import java.util.function.DoubleSupplier;
 
@@ -13,24 +11,23 @@ import java.util.function.DoubleSupplier;
  * (passed in as {@link DoubleSupplier}s). Written
  * explicitly for pedagogical purposes.
  */
-public class IntakeCmd extends CommandBase {
+public class GrabberOpenCmd extends CommandBase {
 
-    private final IntakeSubsystem m_Intake;
+    private final GrabberSubsystem m_Grabber;
 
-    public IntakeCmd(IntakeSubsystem subsystem) {
-        m_Intake = subsystem;
-        addRequirements(m_Intake);
+    public GrabberOpenCmd(GrabberSubsystem subsystem) {
+        m_Grabber = subsystem;
+        addRequirements(m_Grabber);
     }
 
     @Override
     public void execute() {
 
-        m_Intake.ON();
+        m_Grabber.OPEN();
     }
 
     @Override
     public boolean isFinished() {
-        m_Intake.OFF();
         return true;
     }
 

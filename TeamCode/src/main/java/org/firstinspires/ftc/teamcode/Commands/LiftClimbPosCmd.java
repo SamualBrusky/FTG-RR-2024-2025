@@ -3,8 +3,7 @@ package org.firstinspires.ftc.teamcode.Commands;
 import com.arcrobotics.ftclib.command.CommandBase;
 
 import org.firstinspires.ftc.teamcode.Constants;
-import org.firstinspires.ftc.teamcode.subsystems.ClimberSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.DriveSubsystem;
+import org.firstinspires.ftc.teamcode.subsystems.LiftSubsystem;
 
 import java.util.function.DoubleSupplier;
 
@@ -13,23 +12,22 @@ import java.util.function.DoubleSupplier;
  * (passed in as {@link DoubleSupplier}s). Written
  * explicitly for pedagogical purposes.
  */
-public class ClimberRaiseCmd extends CommandBase {
+public class LiftClimbPosCmd extends CommandBase {
 
-    private final ClimberSubsystem m_Climb;
+    private final LiftSubsystem m_Lift;
 
     /**
      * Creates a new DefaultDrive.
      *
      * @param subsystem The drive subsystem this command will run on.
      */
-    public ClimberRaiseCmd(ClimberSubsystem subsystem) {
-        m_Climb = subsystem;
-        addRequirements(m_Climb);
+    public LiftClimbPosCmd(LiftSubsystem subsystem) {
+        m_Lift = subsystem;
+        addRequirements(m_Lift);
     }
 
     @Override
-    public void execute() {
-       m_Climb.RAISE(Constants.ClimberConstants.RAISEPOS);
+    public void execute() {m_Lift.CLIMBERPOS(Constants.LiftConstants.SUBMERSIBLE_LIFT_HEIGHT, Constants.LiftConstants.SUBMERSIBLE_LIFT_ANGLE);
     }
 
     @Override

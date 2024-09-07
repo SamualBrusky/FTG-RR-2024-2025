@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.subsystems;
 import com.arcrobotics.ftclib.command.SubsystemBase;
 import com.arcrobotics.ftclib.controller.PIDFController;
 import com.arcrobotics.ftclib.controller.wpilibcontroller.ElevatorFeedforward;
+import com.arcrobotics.ftclib.hardware.motors.Motor;
 import com.arcrobotics.ftclib.hardware.motors.MotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -16,30 +17,51 @@ import org.firstinspires.ftc.teamcode.Constants;
  */
 public class LiftSubsystem extends SubsystemBase {
 
-    private final MotorEx m_LiftMotor;
+    private final MotorEx m_LiftHeightMotor;
+    private final MotorEx m_LiftAngleMotor;
 
     //PIDFController LiftPIDF = new PIDFController(1, 0, 0, 0);
 
 //    ElevatorFeedforward feedforward = new ElevatorFeedforward(0, 0, 0, 0);
 
-    public LiftSubsystem(final HardwareMap hMap, final String LiftMotorName) {
-        m_LiftMotor = hMap.get(MotorEx.class, LiftMotorName);
+    public LiftSubsystem(final HardwareMap hMap, final String LiftHeightMotorName, final String LiftAngleMotorName) {
+        m_LiftHeightMotor = hMap.get(MotorEx.class, LiftHeightMotorName);
+        m_LiftAngleMotor = hMap.get(MotorEx.class, LiftAngleMotorName);
     }
 
 
-    public void INTAKEPOS(int INTAKEPOS) {
-        m_LiftMotor.setTargetPosition(INTAKEPOS);
-        m_LiftMotor.setRunMode(MotorEx.RunMode.PositionControl);
-        m_LiftMotor.set(INTAKEPOS);
+    public void INTAKEPOS(int INTAKEPOS, int INTAKEANGLE) {
+        m_LiftHeightMotor.setTargetPosition(INTAKEPOS);
+        m_LiftHeightMotor.setRunMode(MotorEx.RunMode.PositionControl);
+        m_LiftHeightMotor.set(INTAKEPOS);
+        m_LiftAngleMotor.setTargetPosition(INTAKEANGLE);
+        m_LiftAngleMotor.setRunMode(MotorEx.RunMode.PositionControl);
+        m_LiftAngleMotor.set(INTAKEANGLE);
     }
-    public void POS1(int POS1) {
-        m_LiftMotor.setTargetPosition(POS1);
-        m_LiftMotor.setRunMode(MotorEx.RunMode.PositionControl);
-        m_LiftMotor.set(POS1);
+    public void TALLBUCKETPOS(int TALLBUCKETPOS, int TALLBUCKETANGLE) {
+        m_LiftHeightMotor.setTargetPosition(TALLBUCKETPOS);
+        m_LiftHeightMotor.setRunMode(MotorEx.RunMode.PositionControl);
+        m_LiftHeightMotor.set(TALLBUCKETPOS);
+        m_LiftAngleMotor.setTargetPosition(TALLBUCKETANGLE);
+        m_LiftAngleMotor.setRunMode(Motor.RunMode.PositionControl);
+        m_LiftAngleMotor.set(TALLBUCKETANGLE);
     }
 
-    public void POS2(int POS2) {
-        m_LiftMotor.setTargetPosition(POS2);
-        m_LiftMotor.setRunMode(MotorEx.RunMode.PositionControl);
-        m_LiftMotor.set(POS2);
-}}
+    public void CLIMBERPOS(int CLIMBERPOS, int CLIMBERANGLE) {
+        m_LiftHeightMotor.setTargetPosition(CLIMBERPOS);
+        m_LiftHeightMotor.setRunMode(MotorEx.RunMode.PositionControl);
+        m_LiftHeightMotor.set(CLIMBERPOS);
+        m_LiftAngleMotor.setTargetPosition(CLIMBERANGLE);
+        m_LiftAngleMotor.setRunMode(MotorEx.RunMode.PositionControl);
+        m_LiftAngleMotor.set(CLIMBERANGLE);
+    }
+
+    public void STARTPOS(int STARTPOS, int STARTANGLE) {
+        m_LiftHeightMotor.setTargetPosition(STARTPOS);
+        m_LiftHeightMotor.setRunMode(Motor.RunMode.PositionControl);
+        m_LiftHeightMotor.set(STARTPOS);
+        m_LiftAngleMotor.setTargetPosition(STARTANGLE);
+        m_LiftAngleMotor.setRunMode(Motor.RunMode.PositionControl);
+        m_LiftAngleMotor.set(STARTANGLE);
+    }
+}
