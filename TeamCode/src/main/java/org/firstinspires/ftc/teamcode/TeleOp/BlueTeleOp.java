@@ -41,7 +41,7 @@ public class BlueTeleOp extends CommandOpMode {
     private GrabberSubsystem m_GrabberSubsystem;
     private LiftSubsystem m_LiftSubsystem;
     //buttons
-    private Button m_LiftHighBucketPos, m_Lower, m_OuttakePos, m_IntakePos, m_Open, m_Launch, m_Intake;
+    public Button m_LiftHighBucketPos, m_LiftIntakePos, m_LiftStartPos, m_LiftClimbPos, m_GrabberClose, m_GrabberOpen;
     @Override
     public void initialize() {
         // Chasis Motors
@@ -63,21 +63,17 @@ public class BlueTeleOp extends CommandOpMode {
         m_GrabberCloseCmd = new GrabberCloseCmd(m_GrabberSubsystem);
         m_GrabberOpenCmd = new GrabberOpenCmd(m_GrabberSubsystem);
 
-        m_LiftHighBucketPos = (new GamepadButton(m_engineerOp, GamepadKeys.Button.RIGHT_BUMPER))
+        m_LiftHighBucketPos = (new GamepadButton(m_engineerOp, GamepadKeys.Button.RIGHT_BUMPER)
                 .whenPressed(m_LiftHighBucketPosCmd));
-        m_IntakePos = (new GamepadButton(m_engineerOp, GamepadKeys.Button.RIGHT_BUMPER)
-                .whenReleased(m_OuttakeRotateIntakePos));
-        m_Open = (new GamepadButton(m_engineerOp, GamepadKeys.Button.LEFT_BUMPER)
-                .whenPressed(m_OuttakeOpen));
-       //Climber
-        m_Raise = (new GamepadButton(m_engineerOp, GamepadKeys.Button.DPAD_UP)
-                .whenPressed(m_ClimberRaise));
-        m_Lower = (new GamepadButton(m_engineerOp, GamepadKeys.Button.DPAD_DOWN)
-                .whenPressed(m_ClimberLower));
 
-        //Intake
-        m_Intake = (new GamepadButton(m_engineerOp, GamepadKeys.Button.A)
-                .whenHeld(m_IntakeCmd));
+        m_LiftIntakePos = (new GamepadButton(m_engineerOp, GamepadKeys.Button.LEFT_BUMPER)
+                .whenPressed(m_LiftintakePosCmd));
+
+        m_GrabberClose = (new GamepadButton(m_engineerOp, GamepadKeys.Button.A)
+                .whenPressed(m_GrabberCloseCmd));
+
+        m_GrabberOpen = (new GamepadButton(m_engineerOp, GamepadKeys.Button.X)
+                .whenPressed(m_GrabberOpenCmd));
     }
 
 }
