@@ -1,9 +1,8 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.arcrobotics.ftclib.command.SubsystemBase;
-import com.arcrobotics.ftclib.hardware.motors.MotorEx;
+import com.arcrobotics.ftclib.hardware.ServoEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.Constants;
 
@@ -14,24 +13,29 @@ import org.firstinspires.ftc.teamcode.Constants;
  */
 public class IntakeSubsystem extends SubsystemBase {
 
-    private final MotorEx IntakeMotor;
+    private final ServoEx leftGrabberServo;
+    private final ServoEx rightGrabberServo;
 
-    public IntakeSubsystem(final HardwareMap hMap, final String IntakeMotorName) {
-        IntakeMotor = hMap.get(MotorEx.class, IntakeMotorName);
+    public IntakeSubsystem(final HardwareMap hMap, final String leftGrabberServoName, final String rightGrabberServoName) {
+        leftGrabberServo = hMap.get(ServoEx.class, leftGrabberServoName);
+        rightGrabberServo = hMap.get(ServoEx.class, rightGrabberServoName);
+
     }
 
     /**
      * Grabs a stone.
      */
     public void ON() {
-        IntakeMotor.setVelocity(Constants.IntakeContants.INTAKESPEED);
+        leftGrabberServo.rotateByAngle(0);
+        rightGrabberServo.rotateByAngle(0);
     }
 
     /**
      * Releases a stone.
      */
     public void OFF() {
-        IntakeMotor.setVelocity(Constants.IntakeContants.ZERO);
+        leftGrabberServo.rotateByAngle(0);
+        rightGrabberServo.rotateByAngle(0);
     }
 
 }
