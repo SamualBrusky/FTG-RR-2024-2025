@@ -27,7 +27,8 @@ public class LiftStartPosCmd extends CommandBase {
     }
 
     @Override
-    public void execute() {m_Lift.CLIMBERPOS(Constants.LiftConstants.STARTING_LIFT_HEIGHT, Constants.LiftConstants.STARTING_LIFT_ANGLE);
+    public void execute() {
+        m_Lift.CLIMBERPOS(Constants.LiftConstants.STARTING_LIFT_HEIGHT, Constants.LiftConstants.STARTING_LIFT_ANGLE);
     }
 
     @Override
