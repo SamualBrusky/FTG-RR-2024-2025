@@ -6,7 +6,7 @@ import org.firstinspires.ftc.teamcode.subsystems.LiftSubsystem;
 /**
  * A command to move the lift to the high bucket position.
  */
-public class LiftIntakePosCmd extends CommandBase {
+public class LiftSubmersibleScoreCmd extends CommandBase {
 
     private final LiftSubsystem m_Lift;
 
@@ -15,7 +15,7 @@ public class LiftIntakePosCmd extends CommandBase {
      *
      * @param subsystem The lift subsystem this command will run on.
      */
-    public LiftIntakePosCmd(LiftSubsystem subsystem) {
+    public LiftSubmersibleScoreCmd(LiftSubsystem subsystem) {
         m_Lift = subsystem;
         addRequirements(m_Lift);  // Ensures no other commands use this subsystem during execution
     }
@@ -23,12 +23,13 @@ public class LiftIntakePosCmd extends CommandBase {
     // Set the setpoint when the command is initialized
     @Override
     public void initialize() {
+
     }
 
     // No need to do anything continuously
     @Override
     public void execute() {
-        m_Lift.setSetpoint(LiftSubsystem.ElevatorPosition.INTAKE_POSITION);
+        m_Lift.setSetpoint(LiftSubsystem.ElevatorPosition.SUBMERSIBLE_SCORE_POSITION);
     }
 
     // The command is finished when the lift reaches the setpoint

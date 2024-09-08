@@ -23,13 +23,12 @@ public class LiftHighBucketPosCmd extends CommandBase {
     // Set the setpoint when the command is initialized
     @Override
     public void initialize() {
-        m_Lift.setSetpoint(LiftSubsystem.ElevatorPosition.HIGH_BUCKET_POSITION);
     }
 
     // No need to do anything continuously
     @Override
     public void execute() {
-        // Empty, as we only set the setpoint in initialize()
+        m_Lift.setSetpoint(LiftSubsystem.ElevatorPosition.INTAKE_POSITION);
     }
 
     // The command is finished when the lift reaches the setpoint
