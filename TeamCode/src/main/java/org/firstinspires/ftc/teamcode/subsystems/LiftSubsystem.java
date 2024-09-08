@@ -10,6 +10,9 @@ public class LiftSubsystem extends SubsystemBase {
     private final MotorEx m_Lift_Height_Motor;
     private final MotorEx m_Lift_Angle_Motor;
 
+    private final double HEIGHT_PID_TOLERANCE = 0.1;
+    private final double ANGLE_PID_TOLERANCE = 0.5;
+
     // Constants
     private static final double TICKS_PER_REVOLUTION = 537.6;  // For GoBILDA 312 RPM motor
     private static final double INCHES_PER_REVOLUTION = 0.5;   // Distance linear slide moves per revolution
@@ -65,8 +68,8 @@ public class LiftSubsystem extends SubsystemBase {
         m_Lift_Angle_Motor.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
 
         // Set initial tolerances for PID
-        heightPID.setTolerance(0.5);  // Tolerance in inches
-        anglePID.setTolerance(1);     // Tolerance in degrees
+        heightPID.setTolerance(HEIGHT_PID_TOLERANCE);  // Tolerance in inches
+        anglePID.setTolerance(ANGLE_PID_TOLERANCE);     // Tolerance in degrees
     }
 
     // Convert encoder ticks to inches
