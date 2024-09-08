@@ -1,39 +1,50 @@
 package org.firstinspires.ftc.teamcode.Commands;
 
 import com.arcrobotics.ftclib.command.CommandBase;
-
-import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.subsystems.LiftSubsystem;
 
-import java.util.function.DoubleSupplier;
-
 /**
- * A command to drive the robot with joystick input
- * (passed in as {@link DoubleSupplier}s). Written
- * explicitly for pedagogical purposes.
+ * A command to move the lift to the high bucket position.
  */
 public class LiftStartPosCmd extends CommandBase {
 
     private final LiftSubsystem m_Lift;
 
     /**
-     * Creates a new DefaultDrive.
+     * Creates a new LiftHighBucketPosCmd.
      *
-     * @param subsystem The drive subsystem this command will run on.
+     * @param subsystem The lift subsystem this command will run on.
      */
     public LiftStartPosCmd(LiftSubsystem subsystem) {
         m_Lift = subsystem;
-        addRequirements(m_Lift);
+        addRequirements(m_Lift);  // Ensures no other commands use this subsystem during execution
     }
 
+    // Set the setpoint when the command is initialized
+    @Override
+    public void initialize() {
+        m_Lift.setSetpoint(LiftSubsystem.ElevatorPosition.STOW_POSITION);
+    }
+
+    // No need to do anything continuously
     @Override
     public void execute() {
-        m_Lift.CLIMBERPOS(Constants.LiftConstants.STARTING_LIFT_HEIGHT, Constants.LiftConstants.STARTING_LIFT_ANGLE);
+        // Empty, as we only set the setpoint in initialize()
     }
 
+    // The command is finished when the lift reaches the setpoint
     @Override
     public boolean isFinished() {
-        return true;
+        return m_Lift.atSetpoint();  // Check if both height and angle motors are at the setpoint
     }
 
+    // Optionally stop the lift motors when the command ends
+    @Override
+    public void end(boolean interrupted) {
+        if (interrupted) {
+            // Optionally set motors to 0 if you want to stop them when interrupted
+            m_Lift.setHeightPower(0);
+            m_Lift.setAnglePower(0);
+        }
+    }
 }
