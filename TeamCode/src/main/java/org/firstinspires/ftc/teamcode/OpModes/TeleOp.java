@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.TeleOp;
+package org.firstinspires.ftc.teamcode.OpModes;
 
 import com.arcrobotics.ftclib.command.CommandOpMode;
 import com.arcrobotics.ftclib.command.button.Button;
@@ -8,7 +8,6 @@ import com.arcrobotics.ftclib.gamepad.GamepadKeys;
 import com.arcrobotics.ftclib.hardware.RevIMU;
 import com.arcrobotics.ftclib.hardware.motors.MotorEx;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Commands.GrabberCloseCmd;
 import org.firstinspires.ftc.teamcode.Commands.GrabberOpenCmd;
@@ -20,9 +19,9 @@ import org.firstinspires.ftc.teamcode.subsystems.DriveSubsystem;
 import org.firstinspires.ftc.teamcode.subsystems.GrabberSubsystem;
 import org.firstinspires.ftc.teamcode.subsystems.LiftSubsystem;
 
-@TeleOp(name = "Blue TeleOp")
+@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name = "Blue TeleOp")
 @Disabled
-public class BlueTeleOp extends CommandOpMode {
+public class TeleOp extends CommandOpMode {
     //drive subsystem
     private MotorEx m_frontLeft, m_frontRight, m_backLeft, m_backRight;
     private RevIMU m_imu;
