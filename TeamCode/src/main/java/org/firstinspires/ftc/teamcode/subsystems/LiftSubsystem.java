@@ -13,12 +13,10 @@ public class LiftSubsystem extends SubsystemBase {
     private final double HEIGHT_PID_TOLERANCE = 0.1;
     private final double ANGLE_PID_TOLERANCE = 0.5;
 
-    // Constants
-    private static final double TICKS_PER_REVOLUTION = 537.6;  // For GoBILDA 312 RPM motor
-    private static final double INCHES_PER_REVOLUTION = 0.5;   // Distance linear slide moves per revolution
-    private static final double DEGREES_PER_REVOLUTION = 360;  // 360 degrees for a full motor revolution
+    private static final double TICKS_PER_REVOLUTION = 537.6;
+    private static final double INCHES_PER_REVOLUTION = 0.5;
+    private static final double DEGREES_PER_REVOLUTION = 360;
 
-    // PID Constants (These should be tuned to your specific robot)
     private final double kPHeight = 0.01;
     private final double kIHeight = 0;
     private final double kDHeight = 0.0000;
@@ -32,8 +30,7 @@ public class LiftSubsystem extends SubsystemBase {
     private final PIDFController heightPID = new PIDFController(kPHeight, kIHeight, kDHeight, kFHeight);
     private final PIDFController anglePID = new PIDFController(kPAngle, kIAngle, kDAngle, kFAngle);
 
-    // Elevator predefined positions
-    public enum ElevatorPosition {
+    public enum LiftPosition {
         STOW_POSITION(0.0, 0.0),
         INTAKE_POSITION(10, 45),  // Example: 10 inches height, 45 degrees angle
         HIGH_BUCKET_POSITION(15, 90),
@@ -44,7 +41,7 @@ public class LiftSubsystem extends SubsystemBase {
         private final double heightInches;
         private final double angleDegrees;
 
-        ElevatorPosition(double heightInches, double angleDegrees) {
+        LiftPosition(double heightInches, double angleDegrees) {
             this.heightInches = heightInches;
             this.angleDegrees = angleDegrees;
         }
@@ -93,7 +90,7 @@ public class LiftSubsystem extends SubsystemBase {
     }
 
     // Set the setpoint for both height and angle
-    public void setSetpoint(ElevatorPosition position) {
+    public void setSetpoint(LiftPosition position) {
         heightPID.setSetPoint(inchesToTicks(position.getHeightInches()));
         anglePID.setSetPoint(degreesToTicks(position.getAngleDegrees()));
     }

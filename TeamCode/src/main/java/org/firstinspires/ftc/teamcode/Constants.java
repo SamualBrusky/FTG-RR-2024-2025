@@ -73,15 +73,6 @@ public class Constants
    }
 
    public class LiftConstants {
-      public static final int UPPER_BRACKET_LIFT_HEIGHT = 1000; //rotations
-      public static final int UPPER_BRACKET_LIFT_ANGLE = 80; //degrees
-      public static final int SUBMERSIBLE_LIFT_HEIGHT = 250; //rotation
-      public static final int SUBMERSIBLE_LIFT_ANGLE = 80; //degrees
-      public static final int STARTING_LIFT_HEIGHT = 0;
-      public static final int STARTING_LIFT_ANGLE = 0;
-      public static final int INTAKE_LIFT_HEIGHT = 100;
-      public static final int INTAKE_LIFT_ANGLE = 0;
-
    }
    public class GrabberConstants {
       public static final double GrabberOpen = 0.0;

@@ -29,7 +29,7 @@ public class LiftSubmersibleSetupCmd extends CommandBase {
     // No need to do anything continuously
     @Override
     public void execute() {
-        m_Lift.setSetpoint(LiftSubsystem.ElevatorPosition.SUBMERSIBLE_SETUP_POSITION);
+        m_Lift.setSetpoint(LiftSubsystem.LiftPosition.SUBMERSIBLE_SETUP_POSITION);
     }
 
     // The command is finished when the lift reaches the setpoint

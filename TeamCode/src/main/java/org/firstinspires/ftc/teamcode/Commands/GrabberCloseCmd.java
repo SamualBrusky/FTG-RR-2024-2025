@@ -23,7 +23,7 @@ public class GrabberCloseCmd extends CommandBase {
     @Override
     public void execute() {
 
-        m_Grabber.CLOSED();
+        m_Grabber.rotationToPosition(GrabberSubsystem.GrabberPosition.CLOSED_POSITION);
     }
 
     @Override

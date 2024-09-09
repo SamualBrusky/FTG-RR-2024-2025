@@ -23,7 +23,7 @@ public class GrabberOpenCmd extends CommandBase {
     @Override
     public void execute() {
 
-        m_Grabber.OPEN();
+        m_Grabber.rotationToPosition(GrabberSubsystem.GrabberPosition.OPEN_POSITION);
     }
 
     @Override
